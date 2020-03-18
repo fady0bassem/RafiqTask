@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
             }
         });
 
-        showDialog();
+        //showDialog();
     }
 
     @Override
@@ -219,6 +219,7 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
         String text = matches.get(0);
         text = text.replace(".", "");
         edittext.setText(text);
+        showDialog();
 //        new GetData(this, text).execute();
     }
 
@@ -308,11 +309,13 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
 
     private void createCashKey(LocationDataModel.Data data) {
         try {
-            LocationRequestModel locationReqestModel = new LocationRequestModel(data.getAddress().getAddress1(), data.getReference(), data.getReferenceType(), String.valueOf(data.getLatitude()), String.valueOf(data.getLongitude()));
+            LocationRequestModel locationReqestModel = new LocationRequestModel(data.getAddress().getAddress1(), data.getReference(), data.getReferenceType(), String.valueOf(data.getLatitude()), String.valueOf(data.getLongitude()), new ArrayList());
 
-            String pre = locationReqestModel.toString(locationReqestModel) /*+ "?BTDXO[]"*/;
+            //String pre = locationReqestModel.toString(locationReqestModel) /*+ "?BTDXO[]"*/;
 
-            pre = "{\"address\":\"" + data.getAddress() + "\",\"reference\":\"" + data.getReference() +"\",\"referenceType\":\"" + data.getReferenceType() + "\",\"latitude\":" + data.getLatitude() +",\"longitude\":" + data.getLongitude() +"}";
+            //String pre = "{\"address\":\"" + data.getAddress().getAddress1() + "\",\"reference\":\"" + data.getReference() + "\",\"referenceType\":\"" + data.getReferenceType() + "\",\"latitude\":" + data.getLatitude() + ",\"longitude\":" + data.getLongitude() + ",\"delivery\":" + "[]}";
+
+            String pre = "{\"address\":\"" + data.getAddress().getAddress1() + "\",\"reference\":\"" + data.getReference() + "\",\"referenceType\":\"" + data.getReferenceType() + "\",\"latitude\":" + data.getLatitude() + ",\"longitude\":" + data.getLongitude() + "}";
 
             String encodedurl = URLEncoder.encode(pre, "UTF-8");
 

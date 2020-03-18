@@ -2,6 +2,8 @@ package com.fadybassem.rafiqtask.data.models;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 public class LocationRequestModel {
 
     private String address;
@@ -9,13 +11,15 @@ public class LocationRequestModel {
     private String referenceType;
     private String latitude;
     private String longitude;
+    private ArrayList delivery;
 
-    public LocationRequestModel(String address, String reference, String referenceType, String latitude, String longitude) {
+    public LocationRequestModel(String address, String reference, String referenceType, String latitude, String longitude, ArrayList delivery) {
         this.address = address;
         this.reference = reference;
         this.referenceType = referenceType;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.delivery = delivery;
     }
 
     public String getAddress() {
@@ -62,5 +66,13 @@ public class LocationRequestModel {
         Gson gson = new Gson();
         String json = gson.toJson(model);
         return json;
+    }
+
+    public ArrayList getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(ArrayList delivery) {
+        this.delivery = delivery;
     }
 }
