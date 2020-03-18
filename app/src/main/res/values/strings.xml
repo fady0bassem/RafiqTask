@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Rafiq Task</string>
+    <string name="press_start_and_talk">Press start and talk!</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="ok">Okay</string>
+    <string name="type_your_area">Type your area...</string>
+    <string name="set_location">Set Location</string>
+    <string name="search">Search</string>
+</resources>
